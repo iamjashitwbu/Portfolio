@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jashit | Finance. Performance. Systems.</title>
+  <meta name="description"
+    content="Personal portfolio of Jashit, an aspiring finance professional and MBA applicant with a background spanning boxing, sports science, operations, and self-built finance systems." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #090909;
+      --bg-soft: #111111;
+      --text: #f3eee6;
+      --muted: #aea69a;
+      --rule: rgba(243, 238, 230, 0.14);
+      --accent: #d78d1f;
+      --accent-soft: rgba(215, 141, 31, 0.18);
+      --max: 1200px;
+      --hero-delay-step: 140ms;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 28%),
+        linear-gradient(90deg, rgba(215, 141, 31, 0.035), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      font-family: "IBM Plex Mono", monospace;
+      line-height: 1.7;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.09;
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 0 0.7px, transparent 0.8px),
+        radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.22) 0 0.7px, transparent 0.8px),
+        radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.15) 0 0.7px, transparent 0.8px);
+      background-size: 180px 180px, 210px 210px, 240px 240px;
+      mix-blend-mode: screen;
+    }
+
+    a {
+      color: var(--text);
+      text-decoration: none;
+      position: relative;
+    }
+
+    a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.22rem;
+      width: 100%;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 180ms ease;
+    }
+
+    a:hover::after,
+    a:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    .site-shell {
+      width: min(calc(100% - 2.5rem), var(--max));
+      margin: 0 auto;
+      padding: 1.4rem 0 5rem;
+    }
+
+    .topbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.6rem 0 1.3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .eyebrow,
+    .nav,
+    .meta-line,
+    .kicker,
+    .project-meta,
+    .contact-list,
+    .label {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow,
+    .meta-line,
+    .project-meta,
+    .label {
+      color: var(--muted);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1rem;
+    }
+
+    .hero {
+      padding: 5.5rem 0 4.75rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) 280px;
+      grid-template-areas:
+        "copy image"
+        "copy aside";
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .hero-copy {
+      grid-area: copy;
+    }
+
+    .hero-copy>* {
+      opacity: 0;
+      transform: translateY(22px);
+    }
+
+    .hero-copy.is-ready>* {
+      animation: rise 560ms cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+    }
+
+    .hero-copy.is-ready>*:nth-child(1) {
+      animation-delay: calc(var(--hero-delay-step) * 0);
+    }
+
+    .hero-copy.is-ready>*:nth-child(2) {
+      animation-delay: calc(var(--hero-delay-step) * 1);
+    }
+
+    .hero-copy.is-ready>*:nth-child(3) {
+      animation-delay: calc(var(--hero-delay-step) * 2);
+    }
+
+    .hero-copy.is-ready>*:nth-child(4) {
+      animation-delay: calc(var(--hero-delay-step) * 3);
+    }
+
+    .hero-copy.is-ready>*:nth-child(5) {
+      animation-delay: calc(var(--hero-delay-step) * 4);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      margin-top: 0.55rem;
+      font-size: clamp(4rem, 11vw, 8.8rem);
+      text-transform: uppercase;
+    }
+
+    .hero-statement {
+      margin-top: 1.25rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(1.3rem, 2.2vw, 2rem);
+      color: var(--text);
+    }
+
+    .hero-status,
+    .hero-summary {
+      max-width: 40rem;
+    }
+
+    .hero-status {
+      margin-top: 1.2rem;
+      color: var(--accent);
+    }
+
+    .hero-summary {
+      margin-top: 1.9rem;
+      color: var(--muted);
+    }
+
+    .hero-image {
+      grid-area: image;
+      margin: 0;
+      width: 280px;
+      height: 280px;
+      justify-self: end;
+      position: relative;
+      border: 2px solid var(--accent);
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.34)),
+        var(--bg-soft);
+    }
+
+    .hero-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: grayscale(0.2) saturate(0.82) brightness(0.82) contrast(1.04);
+    }
+
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.38)),
+        radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.14) 0 0.8px, transparent 0.9px),
+        radial-gradient(circle at 78% 36%, rgba(255, 255, 255, 0.1) 0 0.8px, transparent 0.9px),
+        radial-gradient(circle at 46% 76%, rgba(255, 255, 255, 0.07) 0 0.8px, transparent 0.9px);
+      background-size: auto, 120px 120px, 150px 150px, 180px 180px;
+      mix-blend-mode: normal;
+      pointer-events: none;
+    }
+
+    .hero-aside {
+      grid-area: aside;
+      display: grid;
+      gap: 1.35rem;
+      align-self: stretch;
+      padding-top: 1.1rem;
+    }
+
+    .hero-fact {
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .hero-fact strong {
+      display: block;
+      margin-top: 0.3rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    section {
+      padding: 3.7rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(170px, 0.28fr) minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    .section-title {
+      color: var(--muted);
+    }
+
+    .section-content {
+      display: grid;
+      gap: 1.6rem;
+      max-width: 52rem;
+    }
+
+    .lede {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(1.35rem, 2vw, 2rem);
+      line-height: 1.2;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .timeline-item,
+    .project-item,
+    .cert-list li,
+    .athletics-list li,
+    .contact-list li {
+      padding-top: 1.15rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .timeline-item:first-child,
+    .project-item:first-child,
+    .cert-list li:first-child,
+    .athletics-list li:first-child,
+    .contact-list li:first-child {
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .item-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.8rem 1.4rem;
+      margin-bottom: 0.55rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .project-name {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+
+    .project-name span {
+      color: var(--accent);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .stack-line {
+      color: var(--muted);
+    }
+
+    .footer {
+      padding-top: 1.5rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .accent {
+      color: var(--accent);
+    }
+
+    .inline-divider {
+      display: inline-block;
+      margin: 0 0.6rem;
+      color: var(--rule);
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .section-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "image"
+          "copy"
+          "aside";
+      }
+
+      .hero {
+        padding-top: 4.2rem;
+      }
+
+      .hero-image {
+        justify-self: start;
+        margin-bottom: 0.4rem;
+      }
+
+      h1 {
+        font-size: clamp(3.5rem, 19vw, 6.2rem);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .site-shell {
+        width: min(calc(100% - 1.5rem), var(--max));
+      }
+
+      .topbar {
+        padding-bottom: 1rem;
+      }
+
+      .nav {
+        gap: 0.7rem 0.95rem;
+      }
+
+      section {
+        padding: 3rem 0;
+      }
+
+      .hero-image {
+        width: min(100%, 280px);
+        height: auto;
+        aspect-ratio: 1 / 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <div class="eyebrow">Jashit / Portfolio / India</div>
+      <nav class="nav" aria-label="Section navigation">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#athletics">The Long Game</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-grid">
+          <figure class="hero-image" aria-label="Portrait of Jashit">
+            <img src="jashit.jpg" alt="Jashit" />
+          </figure>
+
+          <div class="hero-copy" id="hero-copy">
+            <div class="eyebrow">National-Level Boxer | 98.21 Percentile | Finance &amp; Operations</div>
+            <h1>Jashit</h1>
+            <p class="hero-statement">Finance. Performance. Systems.</p>
+            <p class="hero-status">Incoming MBA | IMT Ghaziabad</p>
+            <p class="hero-summary">
+              Built on an 8-year boxing career at national level, then extended through Sports
+              Science, family business finance and operations, and self-directed technical work
+              toward equity research and long-horizon sports consulting.
+            </p>
+          </div>
+
+          <aside class="hero-aside" aria-label="Key facts">
+            <div class="hero-fact">
+              <div class="label">Current Work</div>
+              <strong>Finance and operations in an electro-medical equipment business</strong>
+            </div>
+            <div class="hero-fact">
+              <div class="label">Background</div>
+              <strong>2 national medals, 4 state medals, Sports Science graduate</strong>
+            </div>
+            <div class="hero-fact">
+              <div class="label">Operating Belief</div>
+              <strong>Performance failures are design failures.</strong>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="section-grid">
+          <div class="section-title kicker">About</div>
+          <div class="section-content">
+            <p class="lede">
+              Boxing was not a side chapter. For 8 years, it was the primary identity and the
+              foundation everything else was built on.
+            </p>
+            <p>
+              For 8 years I trained and competed as a boxer, with the National Boxing Academy in
+              Rohtak as a major base, and won 2 national medals and 4 state medals. That period
+              shaped how I think more than any classroom could. In boxing, bad outcomes rarely
+              stay mysterious for long. Missed weight, poor recovery, weak round management,
+              broken conditioning, all of it can usually be traced back to flawed preparation,
+              flawed structure, or flawed decision-making.
+            </p>
+            <p>
+              That lens carried into Sports Science, then into the operating core of my family
+              business, and now into finance self-study. I currently manage finance and
+              operations inside an electro-medical equipment business in India. The work is
+              practical: bookkeeping, P&amp;L visibility, quotations, invoicing, cash tracking,
+              and making sure the business runs without friction. I am now building deliberately
+              toward equity research and, over the longer arc, sports consulting grounded in
+              evidence rather than slogans.
+            </p>
+            <p class="muted">
+              Core thesis: performance failures are usually design failures. Fix the structure,
+              and performance follows.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about-legacy" hidden aria-hidden="true">
+        <div class="section-grid">
+          <div class="section-title kicker">About</div>
+          <div class="section-content">
+            <p class="lede">
+              The through-line is not sport or finance by themselves. It is systems that hold
+              up under pressure.
+            </p>
+            <p>
+              Boxing taught me that outcomes are rarely random. A missed weight cut, a slow
+              recovery cycle, a weak round finish, a broken training block, a sloppy expense log,
+              a delayed payment follow-up, a bad capital allocation decision, they all come from
+              design flaws upstream. That idea shaped how I moved from competitive sport into
+              Sports Science, then into the operational core of my family’s business, and now
+              into finance self-study.
+            </p>
+            <p>
+              I currently manage finance and operations inside a family electro-medical equipment
+              business in India. The work is practical: bookkeeping, P&amp;L visibility,
+              quotations, invoicing, cash tracking, and making sure the business runs without
+              friction. At the same time, I am deliberately building toward equity research and,
+              over the longer arc, sports consulting grounded in evidence rather than slogans.
+            </p>
+            <p class="muted">
+              Direct thesis: if a process breaks repeatedly, the issue is usually structural.
+              Fix the structure, and performance follows.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <div class="section-grid">
+          <div class="section-title kicker">Experience</div>
+          <div class="section-content">
+            <article class="timeline-item">
+              <div class="item-head">
+                <h3>Archananant Enterprises | AVS Incorporated</h3>
+                <div class="meta-line">Finance + Operations / India / Current</div>
+              </div>
+              <p>
+                Running day-to-day financial and operating workflows with a bias toward cleaner
+                reporting, tighter controls, and lower friction in execution.
+              </p>
+              <ul>
+                <li>Maintained bookkeeping discipline and improved day-level visibility into cash movement.</li>
+                <li>Managed P&amp;L tracking to keep operating decisions tied to actual business performance.</li>
+                <li>Handled quotation and invoice operations across routine commercial workflows.</li>
+                <li>
+                  Implemented an SMS-based automated cashbook system to reduce manual logging lag
+                  and make recordkeeping usable in real operating conditions.
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="section-grid">
+          <div class="section-title kicker">Projects</div>
+          <div class="section-content">
+            <article class="project-item">
+              <div class="item-head">
+                <div class="project-name">
+                  <h3>Cashbook-101</h3>
+                  <span>Live Project</span>
+                </div>
+                <div class="project-meta">Bolt.new</div>
+              </div>
+              <p>
+                Multi-entity cashbook web app designed for practical business logging: entity
+                switching, transaction tracking, running balances, and fast daily use.
+              </p>
+              <p class="stack-line">
+                <a href="https://cashbook-101.vercel.app" target="_blank" rel="noreferrer">
+                  cashbook-101.vercel.app
+                </a>
+              </p>
+            </article>
+
+            <article class="project-item">
+              <div class="item-head">
+                <div class="project-name">
+                  <h3>DCF Valuation Wizard</h3>
+                  <span>Live Project</span>
+                </div>
+                <div class="project-meta">Replit</div>
+              </div>
+              <p>
+                Deployed valuation workflow focused on turning forecasting assumptions into a
+                cleaner discounted cash flow process with usable output.
+              </p>
+              <p class="stack-line">
+                <a href="https://valuation-wizard-gd71.vercel.app" target="_blank" rel="noreferrer">
+                  valuation-wizard-gd71.vercel.app
+                </a>
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="certifications">
+        <div class="section-grid">
+          <div class="section-title kicker">Certifications</div>
+          <div class="section-content">
+            <ul class="cert-list">
+              <li>
+                <div class="item-head">
+                  <h3>CFI Strategic Problem Solving</h3>
+                  <div class="meta-line">Corporate Finance Institute</div>
+                </div>
+              </li>
+              <li>
+                <div class="item-head">
+                  <h3>Anthropic Claude 101</h3>
+                  <div class="meta-line">Prompt Engineering / Applied AI Workflows</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="athletics">
+        <div class="section-grid">
+          <div class="section-title kicker">The Long Game</div>
+          <div class="section-content">
+            <ul class="athletics-list">
+              <li>
+                <div class="item-head">
+                  <h3>National-Level Boxing | 8-Year Commitment</h3>
+                  <div class="meta-line">Competitive Boxing / 8 Years Active</div>
+                </div>
+                <p>
+                  Boxing was the central discipline for 8 years of active competition, not an
+                  extracurricular line item. The run produced 2 national medals and 4 state
+                  medals through sustained national-level preparation and competition.
+                </p>
+              </li>
+              <li>
+                <div class="item-head">
+                  <h3>National Boxing Academy, Rohtak</h3>
+                  <div class="meta-line">Training Base / Regime</div>
+                </div>
+                <p>
+                  Developed at the National Boxing Academy in Rohtak inside a training structure
+                  built around roadwork, technical drilling, sparring, conditioning, recovery,
+                  and repeatable discipline under pressure.
+                </p>
+              </li>
+              <li>
+                <div class="item-head">
+                  <h3>B.Sc. Sports Science, Maharshi Dayanand University</h3>
+                  <div class="meta-line">Academic Foundation</div>
+                </div>
+                <p>
+                  Studied performance, recovery, adaptation, and the mechanics behind repeatable
+                  execution with direct relevance to training and competition.
+                </p>
+              </li>
+              <li>
+                <div class="item-head">
+                  <h3>Mentoring</h3>
+                  <div class="meta-line">Informal Coaching</div>
+                </div>
+                <p>
+                  Informally mentored junior boxers around training discipline, preparation, and
+                  performance habits.
+                </p>
+              </li>
+              <li>
+                <div class="item-head">
+                  <h3>CAT 2025 | 98.21 Percentile</h3>
+                  <div class="meta-line">Transition Marker</div>
+                </div>
+                <p>
+                  The same discipline applied to a new arena. A transition marker from physical
+                  performance to systems, not an academic stat.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="section-grid">
+          <div class="section-title kicker">Contact / Links</div>
+          <div class="section-content">
+            <ul class="contact-list">
+              <li>
+                <span class="label">Name</span>
+                <p>Jashit</p>
+              </li>
+              <li>
+                <span class="label">Email</span>
+                <p>
+                  <a href="mailto:jashit1234@gmail.com">jashit1234@gmail.com</a>
+                </p>
+              </li>
+              <li>
+                <span class="label">GitHub</span>
+                <p>
+                  <a href="https://github.com/iamjashitwbu" target="_blank" rel="noreferrer">
+                    github.com/iamjashitwbu
+                  </a>
+                </p>
+              </li>
+              <li>
+                <span class="label">Cashbook-101</span>
+                <p>
+                  <a href="https://cashbook-101.vercel.app" target="_blank" rel="noreferrer">
+                    cashbook-101.vercel.app
+                  </a>
+                </p>
+              </li>
+              <li>
+                <span class="label">DCF Valuation Wizard</span>
+                <p>
+                  <a href="https://valuation-wizard-gd71.vercel.app" target="_blank" rel="noreferrer">
+                    valuation-wizard-gd71.vercel.app
+                  </a>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span class="accent">Jashit</span>
+      <span class="inline-divider">/</span>
+      Finance. Performance. Systems.
+    </footer>
+  </div>
+
+  <script>
+    window.addEventListener("load", function () {
+      var heroCopy = document.getElementById("hero-copy");
+
+      if (heroCopy) {
+        heroCopy.classList.add("is-ready");
+      }
+    });
+  </script>
+</body>
+
+</html>

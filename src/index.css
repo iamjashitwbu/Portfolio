@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #090909;
+  --color-bg-soft: #111111;
+  --color-text: #f3eee6;
+  --color-muted: #aea69a;
+  --color-accent: #d78d1f;
+  --color-accent-soft: rgba(215, 141, 31, 0.18);
+  --color-rule: rgba(243, 238, 230, 0.14);
+  
+  --font-sans: "Space Grotesk", "sans-serif";
+  --font-mono: "IBM Plex Mono", "monospace";
+  
+  --tracking-eyebrow: 0.12em;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-mono;
+    min-height: 100vh;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 28%),
+      linear-gradient(90deg, rgba(215, 141, 31, 0.035), transparent 28%),
+      #090909;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.09;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 0 0.7px, transparent 0.8px),
+      radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.22) 0 0.7px, transparent 0.8px),
+      radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.15) 0 0.7px, transparent 0.8px);
+    background-size: 180px 180px, 210px 210px, 240px 240px;
+    mix-blend-mode: screen;
+  }
+
+  h1, h2, h3 {
+    @apply font-sans font-bold leading-[0.95] tracking-tight;
+  }
+}
+
+@layer components {
+  .section-title {
+    @apply text-muted font-mono text-[0.78rem] tracking-eyebrow uppercase;
+  }
+
+  .left-border-card {
+    @apply border-l-2 border-rule pl-6 py-4 relative transition-all duration-500 hover:border-accent;
+  }
+
+  .eyebrow {
+    @apply text-[0.78rem] tracking-eyebrow uppercase text-muted;
+  }
+}
