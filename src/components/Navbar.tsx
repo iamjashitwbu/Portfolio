@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 const Navbar: React.FC = () => {
+  const [open, setOpen] = useState(false);
+
   const navLinks = [
     { name: "About", href: "#about" },
     { name: "Experience", href: "#experience" },
@@ -7,21 +11,35 @@ const Navbar: React.FC = () => {
     { name: "Contact", href: "#contact" },
   ];
 
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setOpen(false);
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <header className="flex flex-wrap items-center justify-between gap-6 py-6 border-b border-rule sticky top-0 bg-bg/80 backdrop-blur-md z-50 px-4 md:px-0">
-      <div className="eyebrow text-text">Jashit / Portfolio / India</div>
-      <nav className="flex flex-wrap gap-x-8 gap-y-2">
-        {navLinks.map((link) => (
-          <a
-            key={link.name}
-            href={link.href}
-            className="text-[0.78rem] tracking-[0.12em] uppercase hover:text-accent transition-colors relative group"
-          >
-            {link.name}
-            <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
+    <header className="navbar">
+      <div className="navbar-inner">
+        <a href="#" className="navbar-brand">Jashit.</a>
+
+        <button className="nav-toggle" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+          <span /><span /><span />
+        </button>
+
+        <nav className={`navbar-links ${open ? "open" : ""}`}>
+          {navLinks.map((link) => (
+            <a key={link.name} href={link.href} onClick={(e) => handleClick(e, link.href)}>
+              {link.name}
+            </a>
+          ))}
+        </nav>
+
+        <div className={`nav-cta-wrap ${open ? "open" : ""}`}>
+          <a href="#contact" className="nav-cta" onClick={(e) => handleClick(e, "#contact")}>
+            Get in Touch
           </a>
-        ))}
-      </nav>
+        </div>
+      </div>
     </header>
   );
 };
