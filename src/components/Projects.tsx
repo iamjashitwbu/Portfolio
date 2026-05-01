@@ -1,7 +1,7 @@
 const projects = [
   {
     num: "01 / 02",
-    meta: "Live Project",
+    meta: "AI-ASSISTED BUILD · SHEETJS · VERCEL",
     name: "Cashbook 101",
     desc: "Multi entity cashbook web app designed for practical business logging: entity switching, transaction tracking, running balances, and fast daily use. Reduced manual bookkeeping workload by 75%.",
     url: "cashbook-101.vercel.app",

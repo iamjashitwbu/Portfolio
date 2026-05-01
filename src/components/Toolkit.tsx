@@ -12,7 +12,7 @@ const toolkitData = [
   {
     title: "Technical",
     count: "04 Skills",
-    items: ["React / TypeScript", "Vite / Next.js", "Supabase / Postgres", "Python (Data)"],
+    items: ["AI-ASSISTED DEVELOPMENT", "PROMPT ENGINEERING", "EXCEL & SHEETS", "NO-CODE / LOW-CODE TOOLS"],
   },
   {
     title: "AI Tools",
@@ -50,6 +50,10 @@ const Toolkit: React.FC = () => {
               </div>
             </div>
           ))}
+        </div>
+        
+        <div className="fade-in fade-in-delay-1" style={{ textAlign: "center", marginTop: "3rem", color: "var(--muted)", fontFamily: "'Manrope', sans-serif", fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+          TOOLS DEPLOYED VIA AI-ASSISTED WORKFLOWS · OUTPUTS ARE FUNCTIONAL AND LIVE
         </div>
 
         <div className="cert-grid fade-in fade-in-delay-2">

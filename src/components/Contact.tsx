@@ -46,7 +46,7 @@ const Contact: React.FC = () => {
             </div>
           </div>
 
-          <a href="mailto:jashit1234@gmail.com" className="contact-cta">
+          <a href="https://mail.google.com/mail/?view=cm&to=jashit1234@gmail.com" target="_blank" rel="noopener noreferrer" className="contact-cta">
             <span className="contact-cta-text">Write a Note → jashit1234@gmail.com</span>
             <span className="contact-cta-arrow">→</span>
           </a>
@@ -54,7 +54,7 @@ const Contact: React.FC = () => {
           <div className="contact-bar">
             <div className="contact-bar-item">
               <span className="contact-bar-label">Email</span>
-              <a href="mailto:jashit1234@gmail.com" className="contact-bar-link">↗ Open</a>
+              <a href="https://mail.google.com/mail/?view=cm&to=jashit1234@gmail.com" target="_blank" rel="noopener noreferrer" className="contact-bar-link">↗ Open</a>
             </div>
             <div className="contact-bar-item">
               <span className="contact-bar-label">GitHub</span>
