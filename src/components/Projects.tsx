@@ -11,10 +11,10 @@ const projects = [
   {
     num: "02 / 02",
     meta: "Research Report",
-    name: "JK Tyre | DCF Valuation",
-    desc: "Bottom up equity valuation of JK Tyre & Industries Ltd. using a 5 year FCFF model (FY26 to FY30) with Gordon Growth terminal value. Arrived at an intrinsic value of ₹308.56/share vs. market price of ₹399.30, flagging a 22.7% overvaluation. WACC at 9.69%, terminal value contributing ~83% of enterprise value.",
+    name: "HUL | DCF Valuation",
+    desc: "Comprehensive equity valuation of Hindustan Unilever Limited using a detailed FCFF model. Includes dividend analysis, margin trends, and intrinsic value assessment. Supported by financial models and market analysis.",
     url: "View Full Report (PDF)",
-    link: "/JK_Tyres_DCF.pdf",
+    link: "/HUL_DCF.pdf",
     watermark: "DCF",
   },
 ];
