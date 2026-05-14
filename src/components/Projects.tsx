@@ -1,6 +1,6 @@
 const projects = [
   {
-    num: "01 / 02",
+    num: "01 / 03",
     meta: "AI-ASSISTED BUILD · SHEETJS · VERCEL",
     name: "Cashbook 101",
     desc: "Multi entity cashbook web app designed for practical business logging: entity switching, transaction tracking, running balances, and fast daily use. Reduced manual bookkeeping workload by 75%.",
@@ -9,13 +9,22 @@ const projects = [
     watermark: "CASH",
   },
   {
-    num: "02 / 02",
+    num: "02 / 03",
     meta: "Research Report",
     name: "HUL | DCF Valuation",
     desc: "Comprehensive equity valuation of Hindustan Unilever Limited using a detailed FCFF model. Includes dividend analysis, margin trends, and intrinsic value assessment. Supported by financial models and market analysis.",
     url: "View Full Report (PDF)",
     link: "/HUL_DCF.pdf",
     watermark: "DCF",
+  },
+  {
+    num: "03 / 03",
+    meta: "Financial Model · EXCEL",
+    name: "HUL | Financial Model",
+    desc: "Detailed Excel-based financial model for Hindustan Unilever Limited. Contains comprehensive analysis, projections, and valuation metrics for equity research and investment decision-making.",
+    url: "Download Model (XLSX)",
+    link: "/HUL_Unilever.xlsx",
+    watermark: "MODEL",
   },
 ];
 
